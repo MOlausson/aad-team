@@ -31,11 +31,12 @@ spec:
       labels:
         name: gamebot        
     spec:
-      # imagePullSecrets:
-      #   - name: teamregistry
+      imagePullSecrets:
+      - name: teamregistry
       containers:
       - name: gamebot
-        image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest
+        #image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest
+        image: team01acrbaa428.azurecr.io/gamebot:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 8080
@@ -46,5 +47,5 @@ spec:
             value: "8080"
           - name: "PICK_STRATEGY"
             value: "RANDOM"
-#          - name: "APPINSIGHTS_INSTRUMENTATIONKEY"
-#            value: "00000000-0000-0000-0000-000000000000"            
+          - name: "APPINSIGHTS_INSTRUMENTATIONKEY"
+            value: "f7d03508-758a-4a7a-b141-7444171b686d"
