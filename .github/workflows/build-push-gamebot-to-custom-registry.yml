@@ -8,15 +8,13 @@
 name: Build and Push GameBot
 
 on:
+  workflow_dispatch:
+  
   push:    
-    # deactivated for now - has to be enabled by team
-    branches-ignore:
-      - '**'
-    
-    #branches: [ master ]
-    #paths:
-    #  - GameBot/**
-    #  - .github/workflows/build-push-gamebot.yml
+    branches: [ master ]
+    paths:
+      - GameBot/**
+      - .github/workflows/build-push-gamebot.yml
    
 defaults:
   run:
@@ -38,5 +36,5 @@ jobs:
     # build the docker image
     - name: build and push    
       run: |
-        az acr build --image "gamebot:latest" --registry myContainerRegistry --file Dockerfile .
+        az acr build --image "gamebot:latest" --registry team01acrbaa428.azurecr.io --file Dockerfile .
 
