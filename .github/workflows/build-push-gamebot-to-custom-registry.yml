@@ -8,6 +8,8 @@
 name: Build and Push GameBot
 
 on:
+  workflow_dispatch:
+  
   push:    
     branches: [ master ]
     paths:
